@@ -11,6 +11,7 @@ export default {
         footer1: "url('./src/assets/footer.png')",
         footer2: "url('./src/assets/footer2.png')",
         banner: "url('./src/assets/Rectangle.png')",
+        add: "url('./src/assets/add.png')",
       },
     },
   },
