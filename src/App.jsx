@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <Header></Header>
-      <Outlet />
+      <div className="min-h-[100vh-628px]">
+        <Outlet />
+      </div>
       <Footer></Footer>
     </>
   );
