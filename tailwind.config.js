@@ -12,6 +12,8 @@ export default {
         footer2: "url('./src/assets/footer2.png')",
         banner: "url('./src/assets/Rectangle.png')",
         add: "url('./src/assets/add.png')",
+        coffee: "url('./src/assets/5.png')",
+        single: "url('./src/assets/single.png')",
       },
     },
   },

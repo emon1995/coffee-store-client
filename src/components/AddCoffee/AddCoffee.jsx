@@ -11,7 +11,17 @@ const AddCoffee = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    fetch("http://localhost:5000/coffees", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
   };
 
   //   console.log(watch("name"));

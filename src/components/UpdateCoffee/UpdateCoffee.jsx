@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 
 const UpdateCoffee = () => {
+  const loadCoffee = useLoaderData();
+
   const {
     register,
     handleSubmit,
@@ -10,7 +12,19 @@ const UpdateCoffee = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    fetch(`http://localhost:5000/coffees/${loadCoffee._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+  };
 
   //   console.log(watch("name"));
 
@@ -40,6 +54,7 @@ const UpdateCoffee = () => {
                 {...register("name", { required: true })}
                 placeholder="Enter coffee name"
                 className="w-full p-2 rounded"
+                defaultValue={loadCoffee?.name}
               />
               {errors.name && <span>This field is required</span>}
             </div>
@@ -50,6 +65,7 @@ const UpdateCoffee = () => {
                 {...register("chef", { required: true })}
                 placeholder="Enter coffee chef"
                 className="w-full p-2 rounded"
+                defaultValue={loadCoffee?.chef}
               />
               {errors.chef && <span>This field is required</span>}
             </div>
@@ -60,6 +76,7 @@ const UpdateCoffee = () => {
                 {...register("supplier", { required: true })}
                 placeholder="Enter coffee supplier"
                 className="w-full p-2 rounded"
+                defaultValue={loadCoffee?.supplier}
               />
               {errors.supplier && <span>This field is required</span>}
             </div>
@@ -70,6 +87,7 @@ const UpdateCoffee = () => {
                 {...register("taste", { required: true })}
                 placeholder="Enter coffee taste"
                 className="w-full p-2 rounded"
+                defaultValue={loadCoffee?.taste}
               />
               {errors.taste && <span>This field is required</span>}
             </div>
@@ -80,6 +98,7 @@ const UpdateCoffee = () => {
                 {...register("category", { required: true })}
                 placeholder="Enter coffee category"
                 className="w-full p-2 rounded"
+                defaultValue={loadCoffee?.category}
               />
               {errors.category && <span>This field is required</span>}
             </div>
@@ -90,6 +109,7 @@ const UpdateCoffee = () => {
                 {...register("details", { required: true })}
                 placeholder="Enter coffee details"
                 className="w-full p-2 rounded"
+                defaultValue={loadCoffee?.details}
               />
               {errors.details && <span>This field is required</span>}
             </div>
@@ -101,6 +121,7 @@ const UpdateCoffee = () => {
               {...register("photo", { required: true })}
               placeholder="Enter coffee Photo"
               className="w-full p-2 rounded"
+              defaultValue={loadCoffee?.photo}
             />
             {errors.Photo && <span>This field is required</span>}
           </div>
