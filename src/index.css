@@ -21,3 +21,7 @@
 .btn {
   @apply border text-[#331A15] rounded-full py-2 px-4 hover:bg-[#331A15] hover:text-white;
 }
+
+.btn-main {
+  @apply bg-[#E3B577] border-[#E3B577] text-[331A15] py-2 px-4 hover:text-white hover:border-white hover:border hover:bg-inherit;
+}

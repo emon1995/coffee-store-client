@@ -10,6 +10,7 @@ export default {
         hero: "url('./src/assets/header.png')",
         footer1: "url('./src/assets/footer.png')",
         footer2: "url('./src/assets/footer2.png')",
+        banner: "url('./src/assets/Rectangle.png')",
       },
     },
   },
